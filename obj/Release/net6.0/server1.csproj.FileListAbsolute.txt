@@ -1,0 +1,15 @@
+C:\Users\olcia_u3ml\source\repos\server1\bin\Release\net6.0\server1.exe
+C:\Users\olcia_u3ml\source\repos\server1\bin\Release\net6.0\server1.deps.json
+C:\Users\olcia_u3ml\source\repos\server1\bin\Release\net6.0\server1.runtimeconfig.json
+C:\Users\olcia_u3ml\source\repos\server1\bin\Release\net6.0\server1.dll
+C:\Users\olcia_u3ml\source\repos\server1\bin\Release\net6.0\server1.pdb
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.csproj.AssemblyReference.cache
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.AssemblyInfoInputs.cache
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.AssemblyInfo.cs
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.csproj.CoreCompileInputs.cache
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.dll
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\refint\server1.dll
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.pdb
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\server1.genruntimeconfig.cache
+C:\Users\olcia_u3ml\source\repos\server1\obj\Release\net6.0\ref\server1.dll
