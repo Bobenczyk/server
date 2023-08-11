@@ -19,7 +19,6 @@ class Program
         //Server.Server.Edit(1);
 
         // --< Client >-- //
-        Thread.Sleep(1000);
         Client.Client.instance.ConnectToServer();
         Client.ThreadManager.StartUpdateing();
         // --< ====== >-- //

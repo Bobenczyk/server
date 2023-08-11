@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System;
-using static GameServer.Client;
 using System.Diagnostics;
 
 namespace GameClient
@@ -20,6 +19,7 @@ namespace GameClient
         public TCP tcp;
         public UDP udp;
 
+        private bool isConnected = false;
         private delegate void PacketHandler(Packet _packet);
         private static Dictionary<int, PacketHandler> packetHandlers;
 
@@ -29,7 +29,8 @@ namespace GameClient
             udp = new UDP();
 
             InitializeClientData();
-            
+
+            isConnected = true;
             tcp.Connect();
         }
     
@@ -91,7 +92,7 @@ namespace GameClient
                     int _byteLength = stream.EndRead(_result);
                     if (_byteLength <= 0)
                     {
-                        // TODO: disconnect
+                        instance.Disconnect();
                         return;
                     }
                     
@@ -103,7 +104,7 @@ namespace GameClient
                 }
                 catch
                 {
-                    // TODO: disconnect
+                    Disconnect();
                 }
             }
 
@@ -151,6 +152,16 @@ namespace GameClient
                 }
 
                 return false;
+            }
+
+            private void Disconnect()
+            {
+                instance.Disconnect();
+
+                stream = null;
+                receivedData = null;
+                receiveBuffer = null;
+                socket = null;
             }
         }
 
@@ -202,7 +213,7 @@ namespace GameClient
 
                     if (_data.Length < 4)
                     {
-                        // TODO: disconnect
+                        instance.Disconnect();
                         return;
                     }
 
@@ -210,7 +221,7 @@ namespace GameClient
                 }
                 catch
                 {
-                    // TODO: disconnect
+                    Disconnect();
                 }
             }
 
@@ -231,6 +242,14 @@ namespace GameClient
                     }
                 });
             }
+
+            private void Disconnect()
+            {
+                instance.Disconnect();
+
+                endPoint = null;
+                socket = null;
+            }
         }
 
         private void InitializeClientData()
@@ -241,6 +260,18 @@ namespace GameClient
                 { (int)ServerPackets.udpTest, ClientHandle.UDPTest }
             };
             Console.WriteLine("Client: Initialized packets.");
+        }
+
+        private void Disconnect()
+        {
+            if (isConnected)
+            {
+                isConnected = false;
+                tcp.socket.Close();
+                udp.socket.Close();
+
+                Console.WriteLine("Disconnected from server.");
+            }
         }
     }
 }
